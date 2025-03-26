@@ -1,0 +1,240 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.26079745461233866 0.18775152390343733 0.9469604283916315 1.7679664495958332
+  position 0.07261252208728568 -0.41419369265309675 0.43778422754262225
+}
+Background {
+  skyColor [
+    0.2 0.2 0.2
+    0 0 0
+  ]
+}
+RectangleArena {
+}
+SpotLight {
+  attenuation 0 0 1
+  beamWidth 0.7
+  direction 0 1 -1
+  intensity 2.3
+  location -0.33 -1 0.5
+  castShadows TRUE
+}
+DEF TARGET Solid {
+  translation 0.08000000000000003 0.06000000000000002 0.13999999999999996
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.9 0
+        baseColorMap ImageTexture {
+        }
+        roughnessMap ImageTexture {
+        }
+        metalnessMap ImageTexture {
+        }
+        emissiveColorMap ImageTexture {
+        }
+      }
+      geometry Sphere {
+        radius 0.005
+        subdivision 2
+      }
+    }
+  ]
+}
+DEF PLATFORM Solid {
+  translation 0 0 0.0755
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.4 0.4
+      }
+      geometry Box {
+        size 0.02 0.02 0.151
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject Box {
+    size 0.02 0.02 0.151
+  }
+  locked TRUE
+}
+Robot {
+  translation 0 0 0.156
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.5982980096420891
+        axis 0 0 1
+        anchor 0 0 0.01
+      }
+      device [
+        DEF m1p PositionSensor {
+          name "m1p"
+        }
+        DEF m1 RotationalMotor {
+          name "m1"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0 0.01
+        rotation 0 0 1 0.5982980096420889
+        children [
+          DEF Mot1 Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.005
+            }
+          }
+          Solid {
+            translation 0.0127 0 0
+            children [
+              DEF Link1 Shape {
+                appearance PBRAppearance {
+                  baseColor 0.3 0 0.3
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.0254 0.01 0.01
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position -0.82892134695797
+                  axis 0 1 0
+                  anchor 0.0127 0 0
+                }
+                device [
+                  DEF m2p PositionSensor {
+                    name "m2p"
+                  }
+                  DEF m2 RotationalMotor {
+                    name "m2"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0.0127 0 0
+                  rotation 0.8490983412471292 -0.3734803713373679 0.3735564470291942 1.7338528847061192
+                  children [
+                    DEF Mot2 Shape {
+                      appearance PBRAppearance {
+                        baseColor 0 0 0
+                      }
+                      geometry Cylinder {
+                        height 0.01
+                        radius 0.005
+                      }
+                    }
+                    Solid {
+                      translation 0.02699 0 0
+                      children [
+                        DEF Link2 Shape {
+                          appearance PBRAppearance {
+                            baseColor 0.3 0 0.3
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.05398 0.01 0.01
+                          }
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            position -1.9472559088124917
+                            axis 0 0 1
+                            anchor 0.02699 0 0
+                          }
+                          device [
+                            DEF m3p PositionSensor {
+                              name "m3p"
+                            }
+                            DEF m3 RotationalMotor {
+                              name "m3"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0.02699 0 0
+                            rotation 0 0 -1 1.9472559088124917
+                            children [
+                              DEF Mot3 Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                }
+                                geometry Cylinder {
+                                  height 0.01
+                                  radius 0.005
+                                }
+                              }
+                              Solid {
+                                translation 0.0365125 0 0
+                                rotation 0 1 0 1.57
+                                children [
+                                  DEF Link3 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0.3 0 0.3
+                                      metalness 0
+                                    }
+                                    geometry Capsule {
+                                      height 0.073025
+                                      radius 0.005
+                                    }
+                                  }
+                                ]
+                                boundingObject USE Link3
+                                physics Physics {
+                                }
+                              }
+                            ]
+                            boundingObject USE Mot3
+                            physics Physics {
+                            }
+                            linearVelocity -5.082302548035438e-08 2.9146533637574883e-09 -1.4902118246796711e-09
+                            angularVelocity 1.0135342384212626e-07 1.1906538039521384e-07 3.061823080595749e-08
+                          }
+                        }
+                      ]
+                      boundingObject USE Link2
+                      physics Physics {
+                      }
+                    }
+                  ]
+                  boundingObject USE Mot2
+                  physics Physics {
+                  }
+                  linearVelocity -2.4836851263221035e-08 -3.4025989716646795e-09 -1.4422727080949432e-09
+                  angularVelocity -1.1396420152467935e-07 -3.673439629022496e-08 7.797027973625428e-09
+                }
+              }
+            ]
+            boundingObject USE Link1
+            physics Physics {
+            }
+          }
+        ]
+        boundingObject USE Mot1
+        physics Physics {
+        }
+        linearVelocity -5.517543422577347e-09 -1.6983104096787504e-09 1.1571653798305268e-13
+        angularVelocity 7.12337204102492e-13 6.317399846264261e-13 6.369320882510071e-16
+      }
+    }
+    DEF Body Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0 0.3
+      }
+      geometry Box {
+        size 0.01 0.01 0.01
+      }
+    }
+  ]
+  boundingObject USE Body
+  controller "Wallcrawler_Ctrl"
+  supervisor TRUE
+}
