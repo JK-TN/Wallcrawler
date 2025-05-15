@@ -167,10 +167,15 @@ while supervisor.step(timestep) != -1:
         m2.setVelocity(0.0) # clear motor2 velocity values
         m2.setPosition(float('+inf')) # set position to undefined
         m2.setVelocity(-delta_q.item(1))#provide joint velocity
+        if m3p.getValue()<=0:
+            m3.setVelocity(0.0) # clear motor3 velocity values
+            m3.setPosition(float('+inf')) # set position to undefined
+            m3.setVelocity(delta_q.item(2))#provide joint velocity
+        else:
+            m3.setVelocity(0.0) # clear motor3 velocity values
+            m3.setPosition(float('+inf')) # set position to undefined
+            m3.setVelocity(-delta_q.item(2))#provide joint velocity
         
-        m3.setVelocity(0.0) # clear motor3 velocity values
-        m3.setPosition(float('+inf')) # set position to undefined
-        m3.setVelocity(delta_q.item(2))#provide joint velocity
         
     else: #otherwise set motor positions to a static position
         m1.setPosition(theta[0])
